@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os.path
 from pathlib import Path
 from dotenv import load_dotenv
+import django.core.mail.backends.base
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import django.core.mail.backends.base
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -140,6 +140,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Internationalization
